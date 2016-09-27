@@ -1,15 +1,20 @@
 from django.shortcuts import render, redirect
 import bcrypt
+from .models import Cat, Dog, Cat_pic, Dog_pic
 from django.core.urlresolvers import reverse
 
 def index(request):
 	return render(request, 'spca_app/index.html')
 
 def cat_adoption(request):
-	return render(request, 'spca_app/cat_adopt.html')
+	cats = Cat.objects.all()
+	cat_pics = Cat_pic.objects.all()
+	return render(request, 'spca_app/cat_adopt.html', context={'cats': cats, 'cat_pics':cat_pics})
 
 def dog_adoption(request):
-	return render(request, 'spca_app/dog_adopt.html')
+	dogs = Dog.objects.all()
+	dog_pics = Dog_pic.objects.all()
+	return render(request, 'spca_app/dog_adopt.html', context={'dogs': dogs, 'dog_pics':dog_pics})
 
 def alumni(request):
 	return render(request, 'spca_app/alumni.html')
