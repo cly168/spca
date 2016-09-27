@@ -1,6 +1,10 @@
 #logo{
 	width:100%;
 }
+
+#admin{
+	font-size: 8px;
+}
 #facebook_logo{
 	border:0; 
 	width:15%; 
@@ -37,4 +41,10 @@
 	width:50%;
 	height:auto;
 	display:inline-block;
+}
+
+.footer{
+	background-color: rgb(43, 39, 39);
+	width:100%;
+	color: white;
 }
