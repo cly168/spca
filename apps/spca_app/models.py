@@ -22,7 +22,7 @@ class Cat(models.Model):
 class Cat_pic(models.Model):
 	cat = models.ForeignKey(Cat, related_name='picturetocat')
 	url = models.CharField(max_length=255)
-	main = models.BooleanField()
+	main = models.BooleanField(default=False)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 
@@ -46,6 +46,6 @@ class Dog(models.Model):
 class Dog_pic(models.Model):
 	dog = models.ForeignKey(Dog, related_name='picturetodog')
 	url = models.CharField(max_length=255)
-	main = models.BooleanField()
+	main = models.BooleanField(default=False)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)

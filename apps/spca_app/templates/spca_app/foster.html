@@ -1,9 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>SPCA of Northern Virginia: Foster Care</title>
-</head>
-<body>
-	<h1>Foster Care</h1>
-</body>
+	<head>
+		<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		{% load staticfiles %}
+		<link rel = "stylesheet" href ="{% static 'spca_app/css/style.css' %}" >
+		<title>SPCA of Northern Virginia: Cat Adoption</title>
+	</head>
+	<body>
+		{% include './navbar.html' %}
+		{% block navbar %}{% endblock %}
+		<div class="container">
+			<h3><img src="{% static 'spca_app/img/paw.png' %}" id ="paw-pic" alt="...">  Foster A Pet</h3>
+			<div class="jumbotron">
+	  			<h1 style="color:#8FB9E3;">You could be a foster parent</h2>
+	  				<div class="col-md-12 center">
+		  				<div class="col-md-6 center">
+				  			<a class="btn btn-primary btn-lg" href="#" role="button">Foster a Cat</a>
+				  		</div>
+				  		<div class="col-md-6 center">
+				  			<a class="btn btn-primary btn-lg" href="#" role="button">Foster a Dog</a>
+				  		</div>
+				  	</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="container">
+				<div class="row">
+					<h1>Footer</h1>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

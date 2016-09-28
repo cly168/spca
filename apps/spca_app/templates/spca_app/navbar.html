@@ -4,7 +4,9 @@
 <div class = "container">
 			<div class = "row">
 				<div class = "col-md-2">
-					<a href= "{% url 'spca:my_index' %}"> <img src ="http://www.spcanova.org/images/logo.gif" alt = "logo" id ="logo"></a>
+					<a href= "{% url 'spca:my_index' %}"> 
+						<img src="{% static 'spca_app/img/logo.jpg' %}" alt="logo" id ="logo">
+					</a>
 				</div>
 				<div class="col-md-10" id="header-info">
 					<h1>703-799-9390</h1>

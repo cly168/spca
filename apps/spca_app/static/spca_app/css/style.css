@@ -55,3 +55,36 @@
 	background-color: #F2F2F1;
 	padding-top:1em;
 }
+
+#contact-pic{
+	width:100%;
+	height:auto;
+	display: inline-block;
+}
+#paw-pic{
+	width:3%;
+	height:auto;
+}
+.contact_id{
+	font-size: 1.2em
+}
+.contact_list{
+	list-style: none;
+	padding-left: 2em;
+}
+#contact_info{
+	padding-bottom: 2em;
+}
+.email{
+	color:#345347;
+}
+.jumbotron {
+	height:20em;
+	background-image: url("../img/kittens.jpg");
+	background-size: cover;
+	background-position: center;
+}
+.center{
+	padding-top:1.5em;
+	text-align: center;
+}
