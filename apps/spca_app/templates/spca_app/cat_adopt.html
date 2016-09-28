@@ -9,67 +9,8 @@
 		<title>SPCA of Northern Virginia: Cat Adoption</title>
 	</head>
 	<body>
-		<div class = "container">
-			<div class = "row">
-				<div class = "col-md-2">
-					<a href= "{% url 'spca:my_index' %}"> <img src ="http://www.spcanova.org/images/logo.gif" alt = "logo" id ="logo"></a>
-				</div>
-				<div class="col-md-10" id="header-info">
-					<h1>703-799-9390</h1>
-					<h4>SPCA of Northern Virginia P.O. Box 100220 Arlington, VA 22210</h4>
-					<a href="http://www.facebook.com/?sk=lf#!/pages/SPCA-NoVa/151238161232">
-						<img id="facebook_logo" src="{% static 'spca_app/img/find-us-on-facebook_logo.gif' %}" alt="...">
-					</a>
-					<dl>
-				</div>
-			</div>
-		</div>
-		<nav class="navbar navbar-default">
- 			 <div class="container">
-				<ul class="nav nav-pills nav-justified">
-			 		<li class="dropdown" role="presentation">
-          				<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Adoptions</a>
-         				<ul class="dropdown-menu">
-	            			<li><a href="{% url 'spca:cat_adoption' %}">Cat Adoption</a></li>
-	            			<li><a href="{% url 'spca:dog_adoption' %}">Dog Adoption</a></li>
-	            			<li role="separator" class="divider"></li>
-	            			<li><a href="{% url 'spca:alumni' %}">Recently Adopted</a></li>
-	            			<li role="separator" class="divider"></li>
-	            			<li><a href="{% url 'spca:guardianangel' %}">Guardian Angels Program</a></li>
-         				</ul>
-					</li>
-			 		<li class="dropdown" role="presentation">
-          				<a href="{% url 'spca:events' %}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">News and Events</a>
-					</li>
-					<li class="dropdown" role="presentation">
-          				<a href="{% url 'spca:foster' %}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Foster Care</a>
-					</li>
-			 		<li class="dropdown" role="presentation">
-          				<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Help Us</a>
-         				<ul class="dropdown-menu">
-	            			<li><a href="{% url 'spca:volunteer' %}">Volunteer</a></li>
-	            			<li><a href="{% url 'spca:donate' %}">Donate</a></li>
-         				</ul>
-					</li>
-			 		<li class="dropdown" role="presentation">
-          				<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Us</a>
-          				<ul class="dropdown-menu">
-	            			<li><a href="{% url 'spca:contact' %}">Contact Us</a></li>
-	            			<li><a href="{% url 'spca:partners' %}">Partners</a></li>
-	            			<li><a href="{% url 'spca:newsletter' %}">Newsletter</a></li>
-         				</ul>
-					</li>
-			 		<li class="dropdown" role="presentation">
-          				<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
-         				<ul class="dropdown-menu">
-	            			<li><a href="{% url 'spca:health_behavior' %}">Health and Behavior</a></li>
-	            			<li><a href="{% url 'spca:lost_and_found' %}">Lost and Found</a></li>
-	            			<li><a href="http://www.spay.org/" target="new">Spay, Inc</a></li>
-         				</ul>
-					</li>
-				</ul>
-			</div>
-		</nav>
+		{% include './navbar.html' %}
+		{% block navbar %}{% endblock %}
 		<div id="pet-wrapper">
 			<div class = "container">
 				<div class = "row">
