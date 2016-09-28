@@ -2,7 +2,6 @@ from django.db import models
 
 # Create your models here.
 class Cat(models.Model):
-	num_pic = models.IntegerField()
 	name = models.CharField(max_length=255)
 	born = models.DateField(auto_now=False)
 	status = models.CharField(max_length=45)
@@ -23,11 +22,11 @@ class Cat(models.Model):
 class Cat_pic(models.Model):
 	cat = models.ForeignKey(Cat, related_name='picturetocat')
 	url = models.CharField(max_length=255)
+	main = models.BooleanField()
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 
 class Dog(models.Model):
-	num_pic = models.IntegerField()
 	name = models.CharField(max_length=255)
 	status = models.CharField(max_length=45)
 	breed = models.CharField(max_length=255)
@@ -47,5 +46,6 @@ class Dog(models.Model):
 class Dog_pic(models.Model):
 	dog = models.ForeignKey(Dog, related_name='picturetodog')
 	url = models.CharField(max_length=255)
+	main = models.BooleanField()
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)

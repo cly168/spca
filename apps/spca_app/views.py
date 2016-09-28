@@ -8,13 +8,15 @@ def index(request):
 
 def cat_adoption(request):
 	cats = Cat.objects.all()
+	main_pics = Cat_pic.ojbects.filter(main = True)
 	cat_pics = Cat_pic.objects.all()
-	return render(request, 'spca_app/cat_adopt.html', context={'cats': cats, 'cat_pics':cat_pics})
+	return render(request, 'spca_app/cat_adopt.html', context={'cats': cats, 'main_pics':main_pics, 'cat_pics':cat_pics})
 
 def dog_adoption(request):
 	dogs = Dog.objects.all()
+	main_pics = Dog_pic.ojbects.filter(main = True)
 	dog_pics = Dog_pic.objects.all()
-	return render(request, 'spca_app/dog_adopt.html', context={'dogs': dogs, 'dog_pics':dog_pics})
+	return render(request, 'spca_app/dog_adopt.html', context={'dogs': dogs, 'main_pics': main_pics, 'dog_pics':dog_pics})
 
 def alumni(request):
 	return render(request, 'spca_app/alumni.html')
