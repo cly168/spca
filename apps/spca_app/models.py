@@ -16,6 +16,8 @@ class Cat(models.Model):
 	comment_top = models.CharField(max_length=255)
 	comment_main = models.TextField()
 	comment_bot = models.CharField(max_length=255)
+	adopted = models.BooleanField(default=False)
+	featured = models.BooleanField(default=False)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 
@@ -39,6 +41,8 @@ class Dog(models.Model):
 	with_cats = models.CharField(max_length=45)
 	comment_main = models.TextField()
 	comment_bot = models.CharField(max_length=255)
+	adopted = models.BooleanField(default=False)
+	featured = models.BooleanField(default=False)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 
