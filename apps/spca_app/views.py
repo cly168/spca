@@ -8,13 +8,13 @@ def index(request):
 
 def cat_adoption(request):
 	cats = Cat.objects.all()
-	main_pics = Cat_pic.ojbects.filter(main = True)
+	main_pics = Cat_pic.objects.filter(main = True)
 	cat_pics = Cat_pic.objects.all()
 	return render(request, 'spca_app/cat_adopt.html', context={'cats': cats, 'main_pics':main_pics, 'cat_pics':cat_pics})
 
 def dog_adoption(request):
 	dogs = Dog.objects.all()
-	main_pics = Dog_pic.ojbects.filter(main = True)
+	main_pics = Dog_pic.objects.filter(main = True)
 	dog_pics = Dog_pic.objects.all()
 	return render(request, 'spca_app/dog_adopt.html', context={'dogs': dogs, 'main_pics': main_pics, 'dog_pics':dog_pics})
 
@@ -50,3 +50,33 @@ def health_behavior(request):
 
 def lost_and_found(request):
 	return render(request, 'spca_app/lost_and_found.html')
+
+def admin(request):
+	return render(request, 'spca_app/admin.html')
+
+def admin_login(request):
+	if request.method == 'POST':
+		if request.POST['username'] == 'admin' and request.POST['password'] == 'password':
+			request.session['admin'] = True
+			return redirect('/admin/main')
+		else:
+			request.session['admin'] = False
+			return redirect('/admin')
+
+def admin_logout(request):
+	request.session['admin'] = False
+	return redirect('/admin')
+
+def admin_main(request):
+	if not request.session['admin']:
+		return redirect('/admin')
+	else:
+		cats = Cat.objects.all()
+		dogs = Dog.objects.all()
+		return render(request, 'spca_app/admin_main.html', context={'cats':cats, 'dogs':dogs})
+
+def add_dog(request):
+	if not request.session['admin']:
+		return redirect('/admin')
+	else:
+		return render(request, 'spca_app/add_dog.html')
