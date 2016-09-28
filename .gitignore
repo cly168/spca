@@ -1,2 +1,4 @@
 *.pyc
 *.pyc
+apps/spca_app/models.pyc
+*.pyc
