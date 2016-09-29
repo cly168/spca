@@ -79,12 +79,13 @@
 	color:#345347;
 }
 .jumbotron {
-	height:20em;
+	padding-top:3em;
+	height:25em;
 	background-image: url("../img/kittens.jpg");
 	background-size: cover;
 	background-position: center;
 }
 .center{
-	padding-top:1.5em;
+	padding-top:3em;
 	text-align: center;
 }
