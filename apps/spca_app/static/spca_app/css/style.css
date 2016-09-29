@@ -124,3 +124,19 @@
 .p-margin{
 	margin-bottom:0em;
 }
+
+.dog_description{
+	padding: 1em;
+}
+#dog-health{
+	width:100%
+}
+#cat-health{
+	width:100%;
+}
+.thumbnail{
+	height:40em;
+}
+.thumnail_img{
+	width:100%;
+}

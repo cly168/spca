@@ -14,12 +14,13 @@
 		<div id="pet-wrapper">
 			<div class = "container">
 				<div class = "row">
-					<h1> <img src="{% static 'spca_app/img/paw.png' %}" id ="paw-pic" alt="...">  Dogs Available For Adoption</h1>
+					<h1> <!-- <img src="{% static 'spca_app/img/paw.png' %}" id ="paw-pic" alt="..."> -->
+					<img src="{% static 'spca_app/img/paw.png' %}" id ="paw-pic" alt="...">  Dogs Available For Adoption</h1>
 					{% for dog in dogs %}
 						<div class="col-xs-6 col-md-3">
 		    				<div class="thumbnail">
 			    				<a href="#" id="featured-pets" data-toggle="modal" data-target="#dog{{dog.id}}">
-			      					<img src="{% static 'spca_app/img/featured-pet.jpg' %}" alt="...">
+			      					<img class="thumbnail_img" src="{{dog.picturetodog.all.0.url}}" alt="...">
 			      					<h3>{{dog.name}}</h3>
 			      				</a>
 			   					<div class="caption">
@@ -38,26 +39,35 @@
 							        	<div id="carousel-example-generic" class="carousel slide" data-interval="false" data-ride="carousel">
 									  		<!-- Indicators -->
 									  		<ol class="carousel-indicators">
-									    		<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-									    		<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-									    		<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+									  		{% for dog_pic in dog.picturetodog.all %}
+										  		{% if forloop.counter == 1 %} 
+									    			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+									    		{% else %}
+									    			<li data-target="#carousel-example-generic" data-slide-to="0"></li>
+									    		{% endif %}
+									    		
+									    	{% endfor %}
 									  		</ol>
 
 									  		<!-- Wrapper for slides -->
 									  		<div class="carousel-inner" role="listbox">
+									  			{% for dog_pic in dog.picturetodog.all %}
+									  			{% if forloop.counter == 1 %}
 									    		<div class="item active">
-									     			<img src="..." alt="...">
+									     			<img src="{{dog_pic.url}}" alt="...">
 									      			<div class="carousel-caption">
 									        			...
 									      			</div>
 									   			</div>
-									    		<div class="item">
-									      			<img src="..." alt="...">
+									   			{% else %}
+									   			<div class="item">
+									     			<img src="{{dog_pic.url}}" alt="...">
 									      			<div class="carousel-caption">
 									        			...
 									      			</div>
-									    		</div>
-									    		...
+									   			</div>
+									   			{% endif %}
+									   			{% endfor %}
 									 		</div>
 
 									  		<!-- Controls -->
@@ -70,6 +80,39 @@
 									    		<span class="sr-only">Next</span>
 									  		</a>
 										</div>
+										<p class="dog_description">{{dog.comment_main}}</p>
+										<table class="table table-bordered">
+											<tr>
+												<td>Name:</td>
+												<td>{{dog.name}}</td>
+												<td>Age:</td>
+												<td>{{dog.age}}</td>
+											</tr>
+											<tr>
+												<td>Status:</td>
+												<td>{{dog.breed}}</td>
+												<td>Size:</td>
+												<td>{{dog.size}}</td>
+											</tr>
+											<tr>
+												<td>Obedience:</td>
+												<td>{{dog.obedience}}</td>
+												<td>Energy Level:</td>
+												<td>{{dog.energy_level}}</td>
+											</tr>
+											<tr>
+												<td>Good with dogs:</td>
+												<td>{{dog.with_dogs}}</td>
+												<td>Good with cats:</td>
+												<td>{{dog.with_cats}}</td>
+											</tr>
+											<tr>
+												<td>Good with kids:</td>
+												<td>{{dog.with_kids}}</td>
+												<td></td>
+												<td>{{dog.comment_bot}}</td>
+											</tr>
+										</table>
 							    	</div>
 									<div class="modal-footer">
 							    		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -81,7 +124,7 @@
 			 			<div class="col-xs-6 col-md-3">
 		    				<div class="thumbnail">
 			    				<a href="#" id="featured-pets" data-toggle="modal" data-target="#myModal2">
-			      					<img src="{% static 'spca_app/img/featured-pet.jpg' %}" alt="...">
+			      					<img class="thumbnail_img" src="{% static 'Dog_pic.url' %}" alt="...">
 			      					<h3>Thumbnail label</h3>
 			      				</a>
 			   					<div class="caption">
@@ -107,12 +150,14 @@
 
 									  		<!-- Wrapper for slides -->
 									  		<div class="carousel-inner" role="listbox">
+									  			{% for dog_pic in dog__picturetodog %}
 									    		<div class="item active">
-									     			<img src="..." alt="...">
+									     			<img src="{{dog_pic.url}}" alt="...">
 									      			<div class="carousel-caption">
 									        			...
 									      			</div>
 									   			</div>
+									   			{% endfor %}
 									    		<div class="item">
 									      			<img src="..." alt="...">
 									      			<div class="carousel-caption">

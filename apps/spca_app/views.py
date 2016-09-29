@@ -4,7 +4,11 @@ from .models import Cat, Dog, Cat_pic, Dog_pic
 from django.core.urlresolvers import reverse
 
 def index(request):
-	return render(request, 'spca_app/index.html')
+	context={
+	'dogs': Dog.objects.filter(featured=True),
+	'cats': Cat.objects.filter(featured=True)
+	}
+	return render(request, 'spca_app/index.html', context)
 
 def cat_adoption(request):
 	cats = Cat.objects.all()

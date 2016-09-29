@@ -19,7 +19,7 @@
 						<div class="col-xs-6 col-md-3">
 		    				<div class="thumbnail">
 			    				<a href="#" id="featured-pets" data-toggle="modal" data-target="#myModal1">
-			      					<img src="{% static 'spca_app/img/featured-pet.jpg' %}" alt="...">
+			      					<img class="thumbnail_img" src="{% static 'spca_app/img/featured-pet.jpg' %}" alt="...">
 			      					<h3>{{cat.name}}</h3>
 			      				</a>
 			   					<div class="caption">
@@ -38,27 +38,36 @@
 							        	<div id="carousel-example-generic" class="carousel slide" data-interval="false" data-ride="carousel">
 									  		<!-- Indicators -->
 									  		<ol class="carousel-indicators">
-									    		<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-									    		<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-									    		<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+									    	{% for cat_pic in cat.picturetocat.all %}
+										  		{% if forloop.counter == 1 %} 
+									    			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+									    		{% else %}
+									    			<li data-target="#carousel-example-generic" data-slide-to="0"></li>
+									    		{% endif %}
+									    		
+									    	{% endfor %}
 									  		</ol>
 
 									  		<!-- Wrapper for slides -->
 									  		<div class="carousel-inner" role="listbox">
+									  			{% for cat_pic in cat.picturetocat.all %}
+									  			{% if forloop.counter == 1 %}
 									    		<div class="item active">
-									     			<img src="..." alt="...">
+									     			<img src="{{cat_pic.url}}" alt="...">
 									      			<div class="carousel-caption">
 									        			...
 									      			</div>
 									   			</div>
-									    		<div class="item">
-									      			<img src="..." alt="...">
+									   			{% else %}
+									   			<div class="item">
+									     			<img src="{{cat_pic.url}}" alt="...">
 									      			<div class="carousel-caption">
 									        			...
 									      			</div>
-									    		</div>
-									    		...
-									 		</div>
+									   			</div>
+									   			{% endif %}
+									   			{% endfor %}
+									 		</div>		
 
 									  		<!-- Controls -->
 									  		<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -70,6 +79,43 @@
 									    		<span class="sr-only">Next</span>
 									  		</a>
 										</div>
+										<p class="cat_description">{{cat.comment_main}}</p>
+										<table class="table table-bordered">
+											<tr>
+												<td>Name:</td>
+												<td>{{cat.name}}</td>
+												<td>Born:</td>
+												<td>{{cat.born}}</td>
+											</tr>
+											<tr>
+												<td>Status:</td>
+												<td>{{cat.status}}</td>
+												<td>Sex:</td>
+												<td>{{cat.sex}}</td>
+											</tr>
+											<tr>
+												<td>Description:</td>
+												<td>{{cat.description}}</td>
+												<td>Needs feline companion:</td>
+												<td>{{cat.need_companion}}</td>
+											</tr>
+											<tr>
+												<td>Good with kids:</td>
+												<td>{{cat.with_kids}}</td>
+												<td>Good with dogs:</td>
+												<td>{{cat.with_dogs}}</td>
+											</tr>
+											<tr>
+												<td>Home environment:</td>
+												<td>{{cat.home_env}}</td>
+												<td>Special needs:</td>
+												<td>{{cat.special_need}}</td>
+											</tr>
+											<tr>
+												<td></td>
+												<td>{{cat.comment_bot}}</td>									
+											</tr>
+										</table>
 							    	</div>
 									<div class="modal-footer">
 							    		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
