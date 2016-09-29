@@ -6,7 +6,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		{% load staticfiles %}
 		<link rel = "stylesheet" href ="{% static 'spca_app/css/style.css' %}" >
-		<title>SPCA of Northern Virginia: Cat Adoption</title>
+		<title>SPCA of Northern Virginia: Foster</title>
 	</head>
 	<body>
 		{% include './navbar.html' %}
@@ -14,7 +14,7 @@
 		<div class="container">
 			<h1><img src="{% static 'spca_app/img/paw.png' %}" id ="paw-pic" alt="...">  Foster A Pet</h1>
 			<div class="jumbotron">
-	  			<h1 style="color:rgb(229, 229, 229); text-align:center">You could be a foster parent</h1>
+	  			<h1 id ="foster-banner">You could be a foster parent</h1>
 	  				<div class="col-md-12 center">
 		  				<div class="col-md-6 center">
 				  			<a class="btn btn-primary btn-lg" href="#" role="button">Foster a Cat</a>
@@ -25,18 +25,18 @@
 				  	</div>
 			</div>
 		</div>
-		<div class="container">
+		<div class="container foster-content">
 			<div class="row">
 				<div class="col-md-8">
 					<h2>Fostering for SPCA of Northern VA</h2>
 					<p>If you can open your home on a temporary basis, you could become a foster parent for a cat, kitten, dog, or puppy. Our need for foster homes varies on a seasonal basis, but is especially critical for cats during kitten season in the spring. Please submit a Cat Foster Home application. As of Jan 2013, we currently are not in need of foster homes for dogs.</p>
-					<p><span style="font-weight:bold">WHAT, WHY, HOW...</span>Since the SPCA does not have a shelter facility, we rely on volunteer foster parents to care for our rescued cats.Foster parents have the unique opportunity to personally help our rescued cats and kittens heal both emotionally and physically from whatever trauma they suffered.</p>
+					<p><span id="foster-description">WHAT, WHY, HOW...</span>Since the SPCA does not have a shelter facility, we rely on volunteer foster parents to care for our rescued cats.Foster parents have the unique opportunity to personally help our rescued cats and kittens heal both emotionally and physically from whatever trauma they suffered.</p>
 					<p>Many fosters are animal lovers who are stepping forward to “do the right thing” for homeless cats and dogs in their neighborhood. They are the pets whose owners moved away and simply abandoned them. They are the pets born to strays. They are the pets lost or forgotten.</p>
 					<p>People choose to foster because if they don’t step up to the plate, the fate of these animals is either sub-par living conditions or sometimes death. They feel good knowing they are making a difference, every minute and every day, in the life of an innocent soul; that a few weeks or months of fostering will turn quickly into a rewarding, educational, challenging, and fun experience they will never forget. While it’s true that fosters do get very attached to their animals, they also find a special joy in sending a pet to a wonderful new family.</p>
 					<p>We provide training and pay all medical costs! There are few acts more heartwarming than helping to save the life of a loving innocent cat or dog in need.</p>
-				</div>
+				</div><br><br>
 				<div class="col-md-4">
-					<img src="{% static 'spca_app/img/foster.jpg' %}" style="width:90%; margin-top:5em; border-radius:50%">
+					<img src="{% static 'spca_app/img/foster.jpg' %}" id="round-kitten">
 				</div>
 			</div>
 		</div>
