@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit</title>
+</head>
+<body>
+	<h1>You are in Edit Page for {{dog.name}}</h1>
+	<h1>Add Dog</h1>
+	<form action="/admin/edit_dog/submit" method="POST">
+		{% csrf_token %}
+		<input type="hidden" name="id" value="{{dog.id}}">
+		<p>Name:<input type="text" name="name" value="{{dog.name}}"></p>
+		<p>Status:<input type="text" name="status" value="{{dog.status}}"></p>
+		<p>Breed:<input type="text" name="breed" value="{{dog.breed}}"></p>
+		<p>Age:<input type="text" name="age" value="{{dog.age}}"></p>
+		<p>Size:<input type="text" name="size" value="{{dog.size}}"></p>
+		<p>Obedience:<input type="text" name="obedience" value="{{dog.obedience}}"></p>
+		<p>Energy Level:<input type="text" name="energy_level" value="{{dog.energy_level}}"></p>
+		<p>Good with dogs?:<input type="text" name="with_dogs" value="{{dog.with_dogs}}"></p>
+		<p>Good with kids?:<input type="text" name="with_kids" value="{{dog.with_kids}}"></p>
+		<p>Good with cats?:<input type="text" name="with_cats" value="{{dog.with_cats}}"></p>
+		<p>Bottom comment:<input type="text" name="comment_bot" value="{{dog.comment_bot}}"></p>
+		<p>Featured: <input type="radio" name="featured" value="True">True <input type="radio" name="featured" value="False">False</p>
+		<p>Special Need:<input type="text" name="special_need" value="{{dog.special_need}}"></p>
+		<textarea name="comment_main" rows="10" cols="60">{{dog.comment_main}}</textarea>
+		<input type="submit" value="Edit" class="submit">
+	</form>
+	<h1>current Pics:</h1>
+	{% if dog_pics %}
+	{% for pic in dog_pics %}
+	<p>Url:{{pic.url}}    Main:{{pic.main}}    <a href="/admin/delete_dog_pics/{{pic.id}}">Delete</a></p>
+	{% endfor %}
+	{% endif %}
+	<h3>Add a Pic</h3>
+	<form action="/admin/add_dog_pic/submit" method="POST">
+		{% csrf_token %}
+		<input type="hidden" name="dog_id" value="{{dog.id}}">
+		<p>URL: <input type="text" name="url"></p>
+		<input type="submit" value="Add" class="submit">
+	</form>
+	<a href="/admin/main">Return</a>
+</body>
+</html>
