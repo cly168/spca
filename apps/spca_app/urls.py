@@ -9,6 +9,8 @@ urlpatterns = [
     url(r'^adoption/guardianangels$', views.guardianangel, name = "guardianangel"),
     url(r'^events$', views.events, name = "events"),
     url(r'^foster$', views.foster, name = "foster"),
+    url(r'^foster/cat$', views.foster_cat, name = "foster_cat"),
+    url(r'^foster/dog$', views.foster_dog, name = "foster_dog"),
     url(r'^help/volunteer$', views.volunteer, name = "volunteer"),
     url(r'^help/donate$', views.donate, name = "donate"),
     url(r'^about/contact$', views.contact, name = "contact"),
@@ -21,4 +23,6 @@ urlpatterns = [
     url(r'^admin/logout$', views.admin_logout, name = "admin_logout"),
     url(r'^admin/main$', views.admin_main, name = "admin_main"),
     url(r'^admin/add_dog$', views.add_dog, name = "add_dog"),
+    url(r'^admin/add_dog/submit$', views.add_dog_submit, name = "add_dog_submit"),
+    url(r'^admin/add_dog/pics/(?P<id>\d+)$', views.add_dog_pics, name = "add_dog_pics"),
 ]

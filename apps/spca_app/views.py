@@ -30,6 +30,12 @@ def events(request):
 def foster(request):
 	return render(request, 'spca_app/foster.html')
 
+def foster_cat(request):
+	return render(request, 'spca_app/foster_cat.html')
+
+def foster_dog(request):
+	return render(request, 'spca_app/foster_dog.html')
+
 def volunteer(request):
 	return render(request, 'spca_app/volunteer.html')
 
@@ -80,3 +86,12 @@ def add_dog(request):
 		return redirect('/admin')
 	else:
 		return render(request, 'spca_app/add_dog.html')
+
+def add_dog_submit(request):
+	if request.method == 'POST':
+		dog_id = Dog.objects.add(request.POST['name'],request.POST['status'],request.POST['breed'],request.POST['age'],request.POST['size'],request.POST['obedience'],request.POST['energy_level'],request.POST['with_dogs'],request.POST['with_kids'],request.POST['with_cats'],request.POST['comment_main'],request.POST['comment_bot'],request.POST['featured'],request.POST['special_need'])
+		return redirect(reverse('spca:add_dog_pics',  kwargs={'id':dog_id}))
+
+def add_dog_pics(request, id):
+	dog = Dog.objects.get(id=id)
+	dog_pics = Dog_pic.objects.filter(dog=dog)
