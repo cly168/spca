@@ -21,4 +21,6 @@ urlpatterns = [
     url(r'^admin/logout$', views.admin_logout, name = "admin_logout"),
     url(r'^admin/main$', views.admin_main, name = "admin_main"),
     url(r'^admin/add_dog$', views.add_dog, name = "add_dog"),
+    url(r'^admin/add_dog/submit$', views.add_dog_submit, name = "add_dog_submit"),
+    url(r'^admin/add_dog/pics/(?P<id>\d+)$', views.add_dog_pics, name = "add_dog_pics"),
 ]

@@ -1,6 +1,30 @@
 from django.db import models
 
 # Create your models here.
+class DogManager(models.Manager):
+	def add(self, name, status, breed, age, size, obedience, energy_level, with_dogs, with_kids, with_cats, comment_main, comment_bot, featured, special_need):
+		Dog.objects.create(name=name, status=status, breed=breed, age=age, size=size, obedience=obedience, energy_level=energy_level, with_dogs=with_dogs, with_kids=with_kids, with_cats=with_cats, comment_main=comment_main, comment_bot=comment_bot, featured=featured, special_need=special_need)
+		return Dog.objects.latest('id')
+	def update(self, id, name, status, breed, age, size, obedience, energy_level, with_dogs, with_kids, with_cats, comment_main, comment_bot, featured, special_need):
+		dog = Dog.objects.get(id=id)
+		dog.name = name
+		dog.status = status
+		dog.breed = breed
+		dog.age = age
+		dog.size = size
+		dog.obedience = obedience
+		dog.energy_level = energy_level
+		dog.with_dogs = with_dogs
+		dog.with_kids = with_kids
+		dog.with_cats = with_cats
+		dog.comment_main = comment_main
+		dog.comment_bot = comment_bot
+		dog.featured = featured
+		dog.special_need = special_need
+		dog.save()
+	def delete(slef, id):
+		Dog.objects.get(id=id).delete()
+
 class Cat(models.Model):
 	name = models.CharField(max_length=255)
 	born = models.DateField(auto_now=False)
@@ -42,6 +66,7 @@ class Dog(models.Model):
 	special_need = models.CharField(max_length=255, default='')
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
+	objects = DogManager()
 
 class Dog_pic(models.Model):
 	dog = models.ForeignKey(Dog, related_name='picturetodog')
