@@ -22,8 +22,30 @@ class DogManager(models.Manager):
 		dog.featured = featured
 		dog.special_need = special_need
 		dog.save()
+	def un_feature(slef, id):
+		dog = Dog.objects.get(id=id)
+		if dog.featured:
+			dog.featured = False
+		else:
+			dog.featured = True
+		dog.save()
 	def delete(slef, id):
 		Dog.objects.get(id=id).delete()
+
+class Dog_picManager(models.Manager):
+	def add(self, id, url):
+		dog = Dog.objects.get(id=id)
+		if Dog_pic.objects.filter(dog=dog).filter(main=True):
+			Dog_pic.objects.create(dog=dog, url=url)
+		else:
+			Dog_pic.objects.create(dog=dog, url=url, main=True)
+	def delete(self, id):
+		Dog_pic.objects.get(id=id).delete()
+	def delete_all(self, id):
+		dog = Dog.objects.get(id=id)
+		pics = Dog_pic.objects.filter(dog=dog)
+		for pic in pics:
+			Dog_pic.objects.get(id=pic.id).delete()
 
 class Cat(models.Model):
 	name = models.CharField(max_length=255)
@@ -74,3 +96,4 @@ class Dog_pic(models.Model):
 	main = models.BooleanField(default=False)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
+	objects = Dog_picManager()
