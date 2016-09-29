@@ -30,6 +30,12 @@ def events(request):
 def foster(request):
 	return render(request, 'spca_app/foster.html')
 
+def foster_cat(request):
+	return render(request, 'spca_app/foster_cat.html')
+
+def foster_dog(request):
+	return render(request, 'spca_app/foster_dog.html')
+
 def volunteer(request):
 	return render(request, 'spca_app/volunteer.html')
 
