@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>admin_main</title>
+</head>
+<body>
+	<h3><a href="/admin/logout">Log Out</a></h3>
+	<h1>Dogs</h1>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Breed</th>
+			<th>Age</th>
+			<th>Status</th>
+			<th>Comment</th>
+			<th>Featured</th>
+			<th>Edit</th>
+			<th>Remove</th>
+			<th>Feature/Unfeature</th>
+		</tr>
+		{% if dogs %}
+		{% for dog in dogs %}
+		<tr>
+			<th>{{dog.name}}</th>
+			<th>{{dog.breed}}</th>
+			<th>{{dog.age}}</th>
+			<th>{{dog.status}}</th>
+			<th>{{dog.comment_bot}}</th>
+			<th>{{dog.featured}}</th>
+			<th><a href="">Edit</a></th>
+			<th><a href="">Remove</a></th>
+			<th><a href="">Feature/Unfeature</a></th>
+		</tr>
+		{% endfor %}
+		{% endif %}
+	</table>
+	<h3><a href="/admin/add_dog">Add Dog</a></h3>
+	<h1>Cats</h1>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Born</th>
+			<th>Sex</th>
+			<th>Status</th>
+			<th>Comment</th>
+			<th>Featured</th>
+			<th>Edit</th>
+			<th>Remove</th>
+			<th>Feature/Unfeature</th>
+		</tr>
+		{% if cats %}
+		{% for cat in cats %}
+		<tr>
+			<th>{{cat.name}}</th>
+			<th>{{cat.description}}</th>
+			<th>{{cat.born}}</th>
+			<th>{{cat.sex}}</th>
+			<th>{{cat.status}}</th>
+			<th>{{cat.comment_bot}}</th>
+			<th>{{cat.featured}}</th>
+			<th><a href="">Edit</a></th>
+			<th><a href="">Remove</a></th>
+			<th><a href="">Feature/Unfeature</a></th>
+		</tr>
+		{% endfor %}
+		{% endif %}
+	</table>
+	<h3><a href="">Add Cat</a></h3>
+</body>
+</html>
