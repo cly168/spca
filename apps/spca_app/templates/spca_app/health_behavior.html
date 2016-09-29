@@ -13,23 +13,62 @@
 		{% block navbar %}{% endblock %}
 		<div class="container">
 			<h1><img src="{% static 'spca_app/img/paw.png' %}" id ="paw-pic" alt="...">  Health and Behavior</h1>
-			<h3>Useful Pet Resources:<hr class="resource-list"></h3>
+			<div class="col-md-6">
+				<div class="row">
+					<h3>Useful Pet Resources:<hr class="resource-list"></h3>
+					<div class="col-md-6">
+						<ul class="resource-list">
+							<li><a href="http://www.veterinarypartner.com/" class="link">Veterinary Partner</a></li>
+							<li><a href="http://www.peteducation.com/index.cfm?c=2" class="link">PetEducation.com</a></li>
+							<li><a href="http://www.petplace.com/" class="link">PetPlace</a></li>
+							<li><a href="http://www.aspca.org/pet-care/animal-poison-control" class="link">ASPCA Animal Poison</a></li>
+						</ul>
+					</div>
+					<div class="col-md-6">
+						<ul class="resource-list">
+							<li><a class="link" href="http://petbehaviorist.com/">Companion Animal Behavior</a>
+								<p class="p-margin">(703) 327-7205</p>
+								<a class="link"href="mailto:AB@Petbehaviorist">AB@Petbehaviorist</a>
+							</li>
+							<li><a class="link" href="http://cooperativepaws.com/"> Cooperative Paws </a>
+								<p class="p-margin">(703) 489-6452</p>
+								<a class="link" href="mailto:eronica@cooperativepaws.com">eronica@cooperativepaws.com</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="row">
+					<h3>Veterinary Behaviorists:<hr class="resource-list"></h3>
+					<div class="col-md-6">
+						<ul class="resource-list">
+							<li>
+							<p class="p-margin">Marsha Reich, DVM, DACVB</p>
+							<p class="p-margin">Maryland-Virginia Veterinary Behavioral Consulting</p>
+							<p class="p-margin">Board certified by the American College of Veterinary Behavior</p>
+							<p class="p-margin">(301)384-3900</p>
+							</li>
+						</ul>
+					</div>
+					<div class="col-md-6">
+						<ul class="resource-list">
+							<li>
+							<p class="p-margin">Dr. E. Kathryn Meyer, VMD</p>
+							<p class="p-margin"><a class="link" href="http://www.veterinarybehaviorclinic.com/">Veterinary Behavior Clinic</a></p>
+							<p class="p-margin">Gaithersburg, MD</p>
+							<p class="p-margin">(301)947-3333</p>
+							<a class="link" href="mailto:vetbehaviorclinic@comcast.net">vetbehaviorclinic@comcast.net</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 			<div class="row">
 				<div class="col-md-6">
-					<ul class="resource-list">
-						<li>Veterinary Partner</li>
-						<li>PetEducation.com</li>
-						<li>PetPlace</li>
-						<li>ASPCA Animal Poison</li>
-					</ul>
+					<img id="" src="{% static 'spca_app/img/dog_health.jpg' %}">
 				</div>
 				<div class="col-md-6">
-					<ul class="resource-list">
-						<li>Veterinary Partner</li>
-						<li>PetEducation.com</li>
-						<li>PetPlace</li>
-						<li>ASPCA Animal Poison</li>
-					</ul>
 				</div>
 			</div>
 		</div>

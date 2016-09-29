@@ -77,7 +77,7 @@
 	padding-bottom: 2em;
 	background-color:#F2F2F1;
 }
-.email{
+.link{
 	color:#345347;
 }
 .jumbotron {
@@ -120,4 +120,7 @@
 }
 .foster-content{
 	margin-bottom:2em;
+}
+.p-margin{
+	margin-bottom:0em;
 }
