@@ -24,5 +24,10 @@ urlpatterns = [
     url(r'^admin/main$', views.admin_main, name = "admin_main"),
     url(r'^admin/add_dog$', views.add_dog, name = "add_dog"),
     url(r'^admin/add_dog/submit$', views.add_dog_submit, name = "add_dog_submit"),
-    url(r'^admin/add_dog/pics/(?P<id>\d+)$', views.add_dog_pics, name = "add_dog_pics"),
+    url(r'^admin/delete_dog/(?P<id>\d+)$', views.delete_dog, name = "delete_dog"),
+    url(r'^admin/edit_dog/(?P<id>\d+)$', views.edit_dog, name = "edit_dog"),
+    url(r'^admin/edit_dog/submit$', views.edit_dog_submit, name = "edit_dog_submit"),
+    url(r'^admin/un_feature_dog/(?P<id>\d+)$', views.un_feature_dog, name = "un_feature_dog"),
+    url(r'^admin/add_dog_pic/submit$', views.add_dog_pics_submit, name = "add_dog_pics_submit"),
+    url(r'^admin/delete_dog_pics/(?P<id>\d+)$', views.delete_dog_pics, name = "delete_dog_pics"),
 ]

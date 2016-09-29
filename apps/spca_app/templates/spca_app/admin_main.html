@@ -27,9 +27,9 @@
 			<th>{{dog.status}}</th>
 			<th>{{dog.comment_bot}}</th>
 			<th>{{dog.featured}}</th>
-			<th><a href="">Edit</a></th>
-			<th><a href="">Remove</a></th>
-			<th><a href="">Feature/Unfeature</a></th>
+			<th><a href="/admin/edit_dog/{{dog.id}}">Edit</a></th>
+			<th><a href="/admin/delete_dog/{{dog.id}}">Remove</a></th>
+			<th><a href="/admin/un_feature_dog/{{dog.id}}">Feature/Unfeature</a></th>
 		</tr>
 		{% endfor %}
 		{% endif %}
