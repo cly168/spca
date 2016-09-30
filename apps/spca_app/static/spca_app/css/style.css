@@ -116,7 +116,7 @@
 }
 .resource-list{
 	margin-top:0em;
-	margin-bottom:0em;
+	margin-bottom:.5em;
 }
 .foster-content{
 	margin-bottom:2em;
@@ -139,4 +139,42 @@
 }
 .thumnail_img{
 	width:100%;
+}
+.margin-top{
+	margin-top:2em;
+}
+#dog-health-button{
+	height:25em;
+	background-image: url("../img/dog_health.jpg");
+	background-size: cover;
+	border-radius: 2%;
+	margin-bottom:2em;
+}
+#cat-health-button{
+	height:25em;
+	background-image: url("../img/cat_health.jpg");
+	background-size: cover;
+	border-radius: 2%;
+	margin-bottom:2em;
+}
+.button-text{
+	padding-top:1em;
+	text-align:center;
+	font-weight: bold;
+	font-size:4em;
+	color:rgb(240, 240, 240);
+	text-decoration: none;
+}
+.plain:hover{
+	text-decoration:none;
+}
+.half{
+	width:95%;
+}
+.cat-foster-header{
+	margin-top:1.5em;
+	font-weight:bold;
+}
+#cat-button{
+	text-align: center;
 }

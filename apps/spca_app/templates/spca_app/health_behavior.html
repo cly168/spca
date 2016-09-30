@@ -13,10 +13,10 @@
 		{% block navbar %}{% endblock %}
 		<div class="container">
 			<h1><img src="{% static 'spca_app/img/paw.png' %}" id ="paw-pic" alt="...">  Health and Behavior</h1>
-			<div class="col-md-6">
+			<div class="col-md-6 margin-top">
 				<div class="row">
-					<h3>Useful Pet Resources:<hr class="resource-list"></h3>
-					<div class="col-md-6">
+					<h3>Useful Pet Resources:<hr class="resource-list half"></h3>
+					<div class="col-md-4">
 						<ul class="resource-list">
 							<li><a href="http://www.veterinarypartner.com/" class="link">Veterinary Partner</a></li>
 							<li><a href="http://www.peteducation.com/index.cfm?c=2" class="link">PetEducation.com</a></li>
@@ -38,9 +38,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-6 margin-top">
 				<div class="row">
-					<h3>Veterinary Behaviorists:<hr class="resource-list"></h3>
+					<h3>Veterinary Behaviorists:<hr class="resource-list half"></h3>
 					<div class="col-md-6">
 						<ul class="resource-list">
 							<li>
@@ -51,8 +51,8 @@
 							</li>
 						</ul>
 					</div>
-					<div class="col-md-6">
-						<ul class="resource-list">
+					<div class="col-md-6" >
+						<ul class="resource-list" >
 							<li>
 							<p class="p-margin">Dr. E. Kathryn Meyer, VMD</p>
 							<p class="p-margin"><a class="link" href="http://www.veterinarybehaviorclinic.com/">Veterinary Behavior Clinic</a></p>
@@ -64,14 +64,24 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-12">
+			<div class="col-md-12 margin-top">
+				<h3>Click for more resources:</h3>
 				<div class="row">
-					<div class="col-md-6">
-						<img id="dog-health" src="{% static 'spca_app/img/dog_health.jpg' %}">
+					<div class="col-md-6" >
+						<a href="#" class="plain"><div id="dog-health-button"><div class="button-text">CANINE HEALTH AND BEHAVIOR</div>
+						</div></a>
 					</div>
 					<div class="col-md-6">
-						<img id="cat-health" src="{% static 'spca_app/img/cat_health.jpg' %}">
+						<a href="#" class="plain"><div id="cat-health-button"><div class="button-text">FELINE HEALTH AND BEHAVIOR</div>
+						</div></a>
 					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="container">
+				<div class="row">
+					<h1>Footer</h1>
 				</div>
 			</div>
 		</div>
