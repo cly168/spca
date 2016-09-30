@@ -13,7 +13,7 @@
 		{% block navbar %}{% endblock %}
 		<div class="container">
 			<h1><img src="{% static 'spca_app/img/paw.png' %}" id ="paw-pic" alt="...">   Cat Foster Responsibilities</h1>
-			<div class="col-md-8 margin-top">
+			<div class="col-md-8 margin-top padding-bottom">
 				<p>We work closely with foster parents to find the right “match” between the foster cat(s), your home environment (e.g., your own pets, kids and other family members, space), and your work schedule.  As a cat foster parent, your responsibilities would include:</p>
 				<h4 class="cat-foster-header">Temporary Home</h4>
 				<hr class="resource-list">
@@ -36,11 +36,15 @@
 			</div>
 			<div class="col-md-4 center">
 				<div class="btn-group" >
-  					<a href="#"><button class="btn btn-primary btn-lg" type="button">
-    					Cat Foster Application
+  					<a href="#"><button class="btn btn-primary btn-lg" type="button"> Click for the Cat Foster Application
   					</button></a>
 				</div>
-				<img src="">
+				<img class="thumnail_img margin-top picture-radius" src="{% static 'spca_app/img/foster_kitten.jpg' %}">
+			</div>
+		</div>
+		<div class="jumbotron" id="foster-cat-avail">
+  			<div class="container">
+    			<h1 id="cat-avail-text">Cats Needing Foster Homes</h1>
 			</div>
 		</div>
 		<div class="footer">

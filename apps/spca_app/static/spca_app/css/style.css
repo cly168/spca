@@ -80,7 +80,7 @@
 .link{
 	color:#345347;
 }
-.jumbotron {
+#foster-jumbotron {
 	padding-top:3em;
 	height:25em;
 	background-image: url("../img/kittens.jpg");
@@ -177,4 +177,22 @@
 }
 #cat-button{
 	text-align: center;
+}
+.picture-radius{
+	border-radius: 2%;
+	border:gray solid 2px;
+}
+.padding-bottom{
+	padding-bottom: 2em;
+}
+#foster-cat-avail {
+	padding-top:3em;
+	height:25em;
+	background-image: url("../img/cat-foster-avail.jpg");
+	background-size: cover;
+	background-position:center;
+}
+#cat-avail-text{
+	color:white;
+	font-size: 8em;
 }
