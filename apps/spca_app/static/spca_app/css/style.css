@@ -26,7 +26,7 @@
 	width: 100%;
 }
 
-#featured-pets{
+.featured-pets{
 	text-decoration: none;
 }
 
@@ -135,10 +135,14 @@
 	width:100%;
 }
 .thumbnail{
-	height:40em;
+	height:32em;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	
 }
 .thumnail_img{
-	width:100%;
+	width:auto;
+	height: 13em;
 }
 .margin-top{
 	margin-top:2em;

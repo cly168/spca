@@ -19,7 +19,7 @@
 					{% for dog in dogs %}
 						<div class="col-xs-6 col-md-3">
 		    				<div class="thumbnail">
-			    				<a href="#" id="featured-pets" data-toggle="modal" data-target="#dog{{dog.id}}">
+			    				<a href="#" class="featured-pets" data-toggle="modal" data-target="#dog{{dog.id}}">
 			      					<img class="thumbnail_img" src="{{dog.picturetodog.all.0.url}}" alt="...">
 			      					<h3>{{dog.name}}</h3>
 			      				</a>
