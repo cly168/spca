@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Cat</title>
+</head>
+<body>
+	<h1>Add Cat</h1>
+	<form action="/admin/add_cat/submit" method="POST">
+		{% csrf_token %}
+		<p>Name:<input type="text" name="name"></p>
+		<p>Born:<input type="date" name="born"></p>
+		<p>Status:<input type="text" name="status"></p>
+		<p>Sex:<input type="text" name="sex"></p>
+		<p>Description:<input type="text" name="description"></p>
+		<p>Need Companion?:<input type="text" name="need_companion"></p>
+		<p>Good with dogs?:<input type="text" name="with_dogs"></p>
+		<p>Good with kids?:<input type="text" name="with_kids"></p>
+		<p>Home environment:<input type="text" name="home_env"></p>
+		<p>Special need:<input type="text" name="special_need"></p>
+		<p>Bottom comment:<input type="text" name="comment_bot"></p>
+		<p>Featured: <input type="radio" name="featured" value="True">True <input type="radio" name="featured" value="False">False</p>
+		<textarea name="comment_main" rows="10" cols="60">Main description here...</textarea>
+		<input type="submit" value="Add" class="submit">
+	</form>
+</body>
+</html>

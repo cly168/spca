@@ -59,13 +59,13 @@
 			<th>{{cat.status}}</th>
 			<th>{{cat.comment_bot}}</th>
 			<th>{{cat.featured}}</th>
-			<th><a href="">Edit</a></th>
-			<th><a href="">Remove</a></th>
-			<th><a href="">Feature/Unfeature</a></th>
+			<th><a href="/admin/edit_cat/{{cat.id}}">Edit</a></th>
+			<th><a href="/admin/delete_cat/{{cat.id}}">Remove</a></th>
+			<th><a href="/admin/un_feature_cat/{{cat.id}}">Feature/Unfeature</a></th>
 		</tr>
 		{% endfor %}
 		{% endif %}
 	</table>
-	<h3><a href="">Add Cat</a></h3>
+	<h3><a href="/admin/add_cat">Add Cat</a></h3>
 </body>
 </html>
