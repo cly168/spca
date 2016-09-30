@@ -30,4 +30,12 @@ urlpatterns = [
     url(r'^admin/un_feature_dog/(?P<id>\d+)$', views.un_feature_dog, name = "un_feature_dog"),
     url(r'^admin/add_dog_pic/submit$', views.add_dog_pics_submit, name = "add_dog_pics_submit"),
     url(r'^admin/delete_dog_pics/(?P<id>\d+)$', views.delete_dog_pics, name = "delete_dog_pics"),
+    url(r'^admin/add_cat$', views.add_cat, name = "add_cat"),
+    url(r'^admin/add_cat/submit$', views.add_cat_submit, name = "add_cat_submit"),
+    url(r'^admin/delete_cat/(?P<id>\d+)$', views.delete_cat, name = "delete_cat"),
+    url(r'^admin/edit_cat/(?P<id>\d+)$', views.edit_cat, name = "edit_cat"),
+    url(r'^admin/edit_cat/submit$', views.edit_cat_submit, name = "edit_cat_submit"),
+    url(r'^admin/un_feature_cat/(?P<id>\d+)$', views.un_feature_cat, name = "un_feature_cat"),
+    url(r'^admin/add_cat_pic/submit$', views.add_cat_pics_submit, name = "add_cat_pics_submit"),
+    url(r'^admin/delete_cat_pics/(?P<id>\d+)$', views.delete_cat_pics, name = "delete_cat_pics"),
 ]
