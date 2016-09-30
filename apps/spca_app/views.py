@@ -37,6 +37,9 @@ def foster(request):
 def foster_cat(request):
 	return render(request, 'spca_app/foster_cat.html')
 
+def foster_cat_apply(request):
+	return render(request, 'spca_app/cat_foster_app.html')
+
 def foster_dog(request):
 	return render(request, 'spca_app/foster_dog.html')
 
@@ -57,6 +60,12 @@ def newsletter(request):
 
 def health_behavior(request):
 	return render(request, 'spca_app/health_behavior.html')
+
+def health_behavior_canine(request):
+	return render(request, 'spca_app/canine_health.html')
+
+def health_behavior_feline(request):
+	return render(request, 'spca_app/feline-health.html')
 
 def lost_and_found(request):
 	return render(request, 'spca_app/lost_and_found.html')
