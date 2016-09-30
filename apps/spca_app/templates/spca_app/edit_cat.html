@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit</title>
+</head>
+<body>
+	<h1>You are in Edit Page for {{cat.name}}</h1>
+	<h1>Add Cat</h1>
+	<form action="/admin/edit_cat/submit" method="POST">
+		{% csrf_token %}
+		<input type="hidden" name="id" value="{{cat.id}}">
+		<p>Name:<input type="text" name="name" value="{{cat.name}}"></p>
+		<p>Born:<input type="date" name="born" value="{{cat.born}}"></p>
+		<p>Status:<input type="text" name="status" value="{{cat.status}}"></p>
+		<p>Sex:<input type="text" name="sex" value="{{cat.sex}}"></p>
+		<p>Description:<input type="text" name="description" value="{{cat.description}}"></p>
+		<p>Need Companion?:<input type="text" name="need_companion" value="{{cat.need_companion}}"></p>
+		<p>Good with dogs?:<input type="text" name="with_dogs" value="{{cat.with_dogs}}"></p>
+		<p>Good with kids?:<input type="text" name="with_kids" value="{{cat.with_kids}}"></p>
+		<p>Home environment:<input type="text" name="home_env" value="{{cat.home_env}}"></p>
+		<p>Special need:<input type="text" name="special_need" value="{{cat.special_need}}"></p>
+		<p>Bottom comment:<input type="text" name="comment_bot" value="{{cat.comment_bot}}"></p>
+		<p>Featured: <input type="radio" name="featured" value="True">True <input type="radio" name="featured" value="False">False</p>
+		<textarea name="comment_main" rows="10" cols="60">{{cat.comment_main}}</textarea>
+		<input type="submit" value="Add" class="submit">
+	</form>
+	<h1>current Pics:</h1>
+	{% if cat_pics %}
+	{% for pic in cat_pics %}
+	<p>Url:{{pic.url}}    Main:{{pic.main}}    <a href="/admin/delete_cat_pics/{{pic.id}}">Delete</a></p>
+	{% endfor %}
+	{% endif %}
+	<h3>Add a Pic</h3>
+	<form action="/admin/add_cat_pic/submit" method="POST">
+		{% csrf_token %}
+		<input type="hidden" name="cat_id" value="{{cat.id}}">
+		<p>URL: <input type="text" name="url"></p>
+		<input type="submit" value="Add" class="submit">
+	</form>
+	<a href="/admin/main">Return</a>
+</body>
+</html>

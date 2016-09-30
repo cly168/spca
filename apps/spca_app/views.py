@@ -103,15 +103,6 @@ def edit_dog(request, id):
 	dog_pics = Dog_pic.objects.filter(dog=dog)
 	return render(request, 'spca_app/edit_dog.html', context={'dog':dog, 'dog_pics': dog_pics})
 
-def un_feature_dog(request, id):
-	Dog.objects.un_feature(id)
-	return redirect('/admin/main')
-
-def delete_dog(request, id):
-	Dog_pic.objects.delete_all(id)
-	Dog.objects.delete(id)
-	return redirect('/admin/main')
-
 def edit_dog_submit(request):
 	if request.method == 'POST':
 		if 'featured' not in request.POST:
@@ -121,6 +112,15 @@ def edit_dog_submit(request):
 		Dog.objects.update(request.POST['id'],request.POST['name'],request.POST['status'],request.POST['breed'],request.POST['age'],request.POST['size'],request.POST['obedience'],request.POST['energy_level'],request.POST['with_dogs'],request.POST['with_kids'],request.POST['with_cats'],request.POST['comment_main'],request.POST['comment_bot'],featured,request.POST['special_need'])
 		dog_id = request.POST['id']
 		return redirect('/admin/main')
+
+def un_feature_dog(request, id):
+	Dog.objects.un_feature(id)
+	return redirect('/admin/main')
+
+def delete_dog(request, id):
+	Dog_pic.objects.delete_all(id)
+	Dog.objects.delete(id)
+	return redirect('/admin/main')
 
 def add_dog_pics_submit(request):
 	if request.method == 'POST':
@@ -132,3 +132,54 @@ def delete_dog_pics(request, id):
 	dog_id = Dog_pic.objects.get(id=id).dog.id
 	Dog_pic.objects.delete(id)
 	return redirect(reverse('spca:edit_dog',  kwargs={'id':dog_id}))
+
+def add_cat(request):
+	if not request.session['admin']:
+		return redirect('/admin')
+	else:
+		return render(request, 'spca_app/add_cat.html')
+
+def add_cat_submit(request):
+	if request.method == 'POST':
+		cat = Cat.objects.add(request.POST['name'],request.POST['born'],request.POST['status'],request.POST['sex'],request.POST['description'],request.POST['need_companion'],request.POST['with_dogs'],request.POST['with_kids'],request.POST['home_env'],request.POST['special_need'],request.POST['comment_main'],request.POST['comment_bot'],request.POST['featured'])
+		return redirect(reverse('spca:edit_cat',  kwargs={'id':cat.id}))
+
+def edit_cat(request, id):
+	cat = Cat.objects.get(id=id)
+	cat_pics = Cat_pic.objects.filter(cat=cat)
+	return render(request, 'spca_app/edit_cat.html', context={'cat':cat, 'cat_pics': cat_pics})
+
+def edit_cat_submit(request):
+	if request.method == 'POST':
+		if 'featured' not in request.POST:
+			featured = False
+		else:
+			featured = request.POST['featured']
+		if not request.POST['born']:
+			print 'here'
+			born = Cat.objects.get(id=request.POST['id']).born
+		else:
+			print 'there'
+			born = request.POST['born']
+		Cat.objects.update(request.POST['id'],request.POST['name'],born,request.POST['status'],request.POST['sex'],request.POST['description'],request.POST['need_companion'],request.POST['with_dogs'],request.POST['with_kids'],request.POST['home_env'],request.POST['special_need'],request.POST['comment_main'],request.POST['comment_bot'],featured)
+		return redirect('/admin/main')
+
+def un_feature_cat(request, id):
+	Cat.objects.un_feature(id)
+	return redirect('/admin/main')		
+
+def delete_cat(request, id):
+	Cat_pic.objects.delete_all(id)
+	Cat.objects.delete(id)
+	return redirect('/admin/main')
+
+def add_cat_pics_submit(request):
+	if request.method == 'POST':
+		cat_id = request.POST['cat_id']
+		Cat_pic.objects.add(cat_id, request.POST['url'])
+		return redirect(reverse('spca:edit_cat',  kwargs={'id':cat_id}))
+
+def delete_cat_pics(request, id):
+	cat_id = Cat_pic.objects.get(id=id).cat.id
+	Cat_pic.objects.delete(id)
+	return redirect(reverse('spca:edit_cat',  kwargs={'id':cat_id}))

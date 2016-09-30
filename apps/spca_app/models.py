@@ -22,14 +22,14 @@ class DogManager(models.Manager):
 		dog.featured = featured
 		dog.special_need = special_need
 		dog.save()
-	def un_feature(slef, id):
+	def un_feature(self, id):
 		dog = Dog.objects.get(id=id)
 		if dog.featured:
 			dog.featured = False
 		else:
 			dog.featured = True
 		dog.save()
-	def delete(slef, id):
+	def delete(self, id):
 		Dog.objects.get(id=id).delete()
 
 class Dog_picManager(models.Manager):
@@ -47,6 +47,51 @@ class Dog_picManager(models.Manager):
 		for pic in pics:
 			Dog_pic.objects.get(id=pic.id).delete()
 
+class CatManager(models.Manager):
+	def add(self,name,born,status,sex,description,need_companion,with_dogs,with_kids,home_env,special_need,comment_main,comment_bot,featured):
+		Cat.objects.create(name=name,born=born,status=status,sex=sex,description=description,need_companion=need_companion,with_dogs=with_dogs,with_kids=with_kids,home_env=home_env,special_need=special_need,comment_main=comment_main,comment_bot=comment_bot,featured=featured)
+		return Cat.objects.latest('id')
+	def update(self,id,name,born,status,sex,description,need_companion,with_dogs,with_kids,home_env,special_need,comment_main,comment_bot,featured):
+		cat = Cat.objects.get(id=id)
+		cat.name = name
+		cat.born = born
+		cat.status = status
+		cat.sex = sex
+		cat.description = description
+		cat.need_companion = need_companion
+		cat.with_dogs = with_dogs
+		cat.with_kids = with_kids
+		cat.home_env = home_env
+		cat.special_need = special_need
+		cat.comment_main = comment_main
+		cat.comment_bot = comment_bot
+		cat.featured = featured
+		cat.save()
+	def un_feature(self, id):
+		cat = Cat.objects.get(id=id)
+		if cat.featured:
+			cat.featured = False
+		else:
+			cat.featured = True
+		cat.save()
+	def delete(self, id):
+		Cat.objects.get(id=id).delete()
+
+class Cat_picManager(models.Manager):
+	def add(self, id, url):
+		cat = Cat.objects.get(id=id)
+		if Cat_pic.objects.filter(cat=cat).filter(main=True):
+			Cat_pic.objects.create(cat=cat, url=url)
+		else:
+			Cat_pic.objects.create(cat=cat, url=url, main=True)
+	def delete(self, id):
+		Cat_pic.objects.get(id=id).delete()
+	def delete_all(self, id):
+		cat = Cat.objects.get(id=id)
+		pics = Cat_pic.objects.filter(cat=cat)
+		for pic in pics:
+			Cat_pic.objects.get(id=pic.id).delete()
+
 class Cat(models.Model):
 	name = models.CharField(max_length=255)
 	born = models.DateField(auto_now=False)
@@ -63,6 +108,7 @@ class Cat(models.Model):
 	featured = models.BooleanField(default=False)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
+	objects = CatManager()
 
 class Cat_pic(models.Model):
 	cat = models.ForeignKey(Cat, related_name='picturetocat')
@@ -70,6 +116,7 @@ class Cat_pic(models.Model):
 	main = models.BooleanField(default=False)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
+	objects = Cat_picManager()
 
 class Dog(models.Model):
 	name = models.CharField(max_length=255)
