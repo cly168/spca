@@ -1,1 +1,7 @@
 *.pyc
+*.pyc
+apps/spca_app/models.pyc
+*.pyc
+*.pyc
+*.pyc
+*.sqlite3

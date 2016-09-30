@@ -1,9 +1,50 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>SPCA of Northern Virginia: Partners</title>
-</head>
-<body>
-	<h1>Partners</h1>
-</body>
+	<head>
+		<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		{% load staticfiles %}
+		<link rel = "stylesheet" href ="{% static 'spca_app/css/style.css' %}" >
+		<title>SPCA of Northern Virginia: Partners</title>
+	</head>
+	<body>
+		{% include './navbar.html' %}
+		{% block navbar %}{% endblock %}
+		<div class="container">
+			<h1><img src="{% static 'spca_app/img/paw.png' %}" id ="paw-pic" alt="...">  Partners</h1>
+			<div class="row">
+				<div class="col-md-4">
+					<a href="http://www.bestbullysticks.com/?SSAID=1016093" target="_blank"><img class="partnerpic" src="{% static 'spca_app/img/best_bully_sticks_logo.png' %}"></a><br><br>
+					<p>Buy from Best Bully Sticks using this link and the SPCA of Northern Virginia will get 6% of your purchase!</p>
+				</div>
+				<div class="col-md-4">
+					<a href="http://www.doodycalls.com/" target="_blank"> <img class="partnerpic" src="{% static 'spca_app/img/doody_calls.jpg' %}"></a><br><br>
+					<p>Let the professionals clean up after your dog and make your lawn a fun, clean, and safe place to be. DoodyCalls will donate $20 to the SPCA of Northern Virginia for every referral that signs up for regular service! Make sure to mention that the SPCA of Northern Virginia sent you!</p>
+				</div>
+				<div class="col-md-4">
+					<a href="http://www.igive.com/welcome/lp15/wr34.cfm?c=6183&m=74766" target="_blank"><img class="partnerpic" src="{% static 'spca_app/img/igive.png' %}"></a><br><br>
+					<p>Each time you make a purchase by clicking through from their website to any of he over 500 merchagnes they have in their "mall", a percentage of your purchase is donated to SPCA NoVA</p>
+				</div>
+			</div><br><br>
+		</div>
+		<div class="row" id = "info-container">
+			<div class="col-xs-12">
+				<div class="container">
+					<h3>How You Can Help:</h3>
+						<div class="col-md-offset-1">
+							<p>The SPCA of Northern Virginia needs your help. While we would like for everyone who visits this website to adopt a needy dog or cat, we realize that not everyone is able to do so. Sometimes rental agreements, allergies, travel schedules or other constraints make adoption impossible. There are many other ways for you to support our work with the animals, though.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="container">
+				<div class="row">
+					<h1>Footer</h1>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

@@ -1,9 +1,55 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>SPCA of Northern Virginia: Contact Us</title>
-</head>
-<body>
-	<h1>Contact Us</h1>
-</body>
+	<head>
+		<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		{% load staticfiles %}
+		<link rel = "stylesheet" href ="{% static 'spca_app/css/style.css' %}" >
+		<title>SPCA of Northern Virginia: Contact Us</title>
+	</head>
+	<body>
+		{% include './navbar.html' %}
+		{% block navbar %}{% endblock %}
+		<div class="row" id="contact_info">
+			<div class="col-md-12">
+				<div class="container">
+					<h1><img src="{% static 'spca_app/img/paw.png' %}" id ="paw-pic" alt="..."> Contact Us</h1>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="col-xs-6">
+								<h2>Address:</h2>
+								<p>SPCA of Northern Virginia<br> P.O Box 100220<br> Arlington, VA 22210-3220</p>
+							</div>
+							<div class="col-xs-6">	
+								<h2>Phone:</h2>
+								<p>(703)799-9390</p>
+								<p>(voice mail system)</p>
+							</div>
+							<div class="col-xs-12">		
+								<h2>Email:</h2>
+								<p class="contact_list"><span class="contact_id">Cats: </span><a href="mailto:Cat_Committee@spcanova.org" class="link">Cat_Committee@spcanova.org</a></p>
+								<p class="contact_list"><span class="contact_id">Dogs: </span><a href="mailto:Dog_Committee@spcanova.org" class="link">Dog_Committee@spcanova.org</a></p>
+								<p class="contact_list"><span class="contact_id">Volunteering: </span><a href="mailto:Volunteers@spcanova.org" class="link">Volunteers@spcanova.org</a></p>
+								<p class="contact_list"><span class="contact_id">Webmaster: </span><a href="mailto:Webmaster@spcanova.org" class="link">Webmaster@spcanova.org</a></p>
+								<p class="contact_list"><span class="contact_id">Spay, Inc: </span><a href="mailto:spay-neuter@spcanova.org" class="link">spay-neuter@spcanova.org</a></p>
+								<p class="contact_list"><span class="contact_id">Kitten Spaying/Neutering: </span><a href="mailto:kitten-spay@spcanova.org" class="link">kitten-spay@spcanova.org</a></p>
+								<p class="contact_list"><span class="contact_id">Humane Information and Guidance: </span><a href="mailto:kitten-spay@spcanova.org" class="link"><span style="margin-left: 40px">humane_investigations@spcanova.org</span></a></p>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<img src="{% static 'spca_app/img/dog-pic.jpg' %}" id ="contact-pic" alt="...">
+						</div>		
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="container">
+				<div class="row">
+					<h1>Footer</h1>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

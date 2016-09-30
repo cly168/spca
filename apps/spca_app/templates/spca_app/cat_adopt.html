@@ -9,79 +9,21 @@
 		<title>SPCA of Northern Virginia: Cat Adoption</title>
 	</head>
 	<body>
-		<div class = "container">
-			<div class = "row">
-				<div class = "col-md-2">
-					<a href= "{% url 'spca:my_index' %}"> <img src ="http://www.spcanova.org/images/logo.gif" alt = "logo" id ="logo"></a>
-				</div>
-				<div class="col-md-10" id="header-info">
-					<h1>703-799-9390</h1>
-					<h4>SPCA of Northern Virginia P.O. Box 100220 Arlington, VA 22210</h4>
-					<a href="http://www.facebook.com/?sk=lf#!/pages/SPCA-NoVa/151238161232">
-						<img id="facebook_logo" src="{% static 'spca_app/img/find-us-on-facebook_logo.gif' %}" alt="...">
-					</a>
-					<dl>
-				</div>
-			</div>
-		</div>
-		<nav class="navbar navbar-default">
- 			 <div class="container">
-				<ul class="nav nav-pills nav-justified">
-			 		<li class="dropdown" role="presentation">
-          				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Adoptions</a>
-         				<ul class="dropdown-menu">
-	            			<li><a href="/adoption/catadoption">Cat Adoption</a></li>
-	            			<li><a href="/adoption/dogadoption">Dog Adoption</a></li>
-	            			<li role="separator" class="divider"></li>
-	            			<li><a href="/adoption/alumni">Recently Adopted</a></li>
-	            			<li role="separator" class="divider"></li>
-	            			<li><a href="/adoption/guardianangels">Guardian Angels Program</a></li>
-         				</ul>
-					</li>
-			 		<li class="dropdown" role="presentation">
-          				<a href="/events" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">News and Events</a>
-					</li>
-					<li class="dropdown" role="presentation">
-          				<a href="/foster" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Foster Care</a>
-					</li>
-			 		<li class="dropdown" role="presentation">
-          				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Help Us</a>
-         				<ul class="dropdown-menu">
-	            			<li><a href="/help/volunteer">Volunteer</a></li>
-	            			<li><a href="/help/donate">Donate</a></li>
-         				</ul>
-					</li>
-			 		<li class="dropdown" role="presentation">
-          				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Us</a>
-          				<ul class="dropdown-menu">
-	            			<li><a href="/about/contact">Contact Us</a></li>
-	            			<li><a href="/about/partners">Partners</a></li>
-	            			<li><a href="/about/newsletter">Newsletter</a></li>
-         				</ul>
-					</li>
-			 		<li class="dropdown" role="presentation">
-          				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
-         				<ul class="dropdown-menu">
-	            			<li><a href="/resources/health_behavior">Health and Behavior</a></li>
-	            			<li><a href="/resources/lost_and_found">Lost and Found</a></li>
-	            			<li><a href="http://www.spay.org/" target="new">Spay, Inc</a></li>
-         				</ul>
-					</li>
-				</ul>
-			</div>
-		</nav>
+		{% include './navbar.html' %}
+		{% block navbar %}{% endblock %}
 		<div id="pet-wrapper">
 			<div class = "container">
 				<div class = "row">
-					<h1>Cats Available For Adoption</h1>
+					<h1><img src="{% static 'spca_app/img/paw.png' %}" id ="paw-pic" alt="...">  Cats Available For Adoption</h1>
+					{% for cat in cats %}
 						<div class="col-xs-6 col-md-3">
 		    				<div class="thumbnail">
 			    				<a href="#" id="featured-pets" data-toggle="modal" data-target="#myModal1">
-			      					<img src="{% static 'spca_app/img/featured-pet.jpg' %}" alt="...">
-			      					<h3>Thumbnail label</h3>
+			      					<img class="thumbnail_img" src="{% static 'spca_app/img/featured-pet.jpg' %}" alt="...">
+			      					<h3>{{cat.name}}</h3>
 			      				</a>
 			   					<div class="caption">
-			   						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			   						<p>{{cat.comment_main}}</p>
 			   					</div>
 		   					</div>
 			 			</div>
@@ -90,33 +32,42 @@
 	    						<div class="modal-content">
 	      							<div class="modal-header">
 	        							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        							<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+	        							<h4 class="modal-title" id="myModalLabel">{{cat.name}}</h4>
 	      							</div>
 	      							<div class="modal-body">
 							        	<div id="carousel-example-generic" class="carousel slide" data-interval="false" data-ride="carousel">
 									  		<!-- Indicators -->
 									  		<ol class="carousel-indicators">
-									    		<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-									    		<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-									    		<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+									    	{% for cat_pic in cat.picturetocat.all %}
+										  		{% if forloop.counter == 1 %} 
+									    			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+									    		{% else %}
+									    			<li data-target="#carousel-example-generic" data-slide-to="0"></li>
+									    		{% endif %}
+									    		
+									    	{% endfor %}
 									  		</ol>
 
 									  		<!-- Wrapper for slides -->
 									  		<div class="carousel-inner" role="listbox">
+									  			{% for cat_pic in cat.picturetocat.all %}
+									  			{% if forloop.counter == 1 %}
 									    		<div class="item active">
-									     			<img src="..." alt="...">
+									     			<img src="{{cat_pic.url}}" alt="...">
 									      			<div class="carousel-caption">
 									        			...
 									      			</div>
 									   			</div>
-									    		<div class="item">
-									      			<img src="..." alt="...">
+									   			{% else %}
+									   			<div class="item">
+									     			<img src="{{cat_pic.url}}" alt="...">
 									      			<div class="carousel-caption">
 									        			...
 									      			</div>
-									    		</div>
-									    		...
-									 		</div>
+									   			</div>
+									   			{% endif %}
+									   			{% endfor %}
+									 		</div>		
 
 									  		<!-- Controls -->
 									  		<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -128,6 +79,43 @@
 									    		<span class="sr-only">Next</span>
 									  		</a>
 										</div>
+										<p class="cat_description">{{cat.comment_main}}</p>
+										<table class="table table-bordered">
+											<tr>
+												<td>Name:</td>
+												<td>{{cat.name}}</td>
+												<td>Born:</td>
+												<td>{{cat.born}}</td>
+											</tr>
+											<tr>
+												<td>Status:</td>
+												<td>{{cat.status}}</td>
+												<td>Sex:</td>
+												<td>{{cat.sex}}</td>
+											</tr>
+											<tr>
+												<td>Description:</td>
+												<td>{{cat.description}}</td>
+												<td>Needs feline companion:</td>
+												<td>{{cat.need_companion}}</td>
+											</tr>
+											<tr>
+												<td>Good with kids:</td>
+												<td>{{cat.with_kids}}</td>
+												<td>Good with dogs:</td>
+												<td>{{cat.with_dogs}}</td>
+											</tr>
+											<tr>
+												<td>Home environment:</td>
+												<td>{{cat.home_env}}</td>
+												<td>Special needs:</td>
+												<td>{{cat.special_need}}</td>
+											</tr>
+											<tr>
+												<td></td>
+												<td>{{cat.comment_bot}}</td>									
+											</tr>
+										</table>
 							    	</div>
 									<div class="modal-footer">
 							    		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -135,6 +123,7 @@
 			    				</div>
 			  				</div>
 						</div>
+						{% endfor %}
 			 			<div class="col-xs-6 col-md-3">
 		    				<div class="thumbnail">
 			    				<a href="#" id="featured-pets" data-toggle="modal" data-target="#myModal2">
@@ -318,7 +307,6 @@
 			    				</div>
 			  				</div>
 						</div>
-
 				</div>
 			</div>
 		</div>

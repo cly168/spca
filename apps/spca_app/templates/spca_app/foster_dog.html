@@ -6,13 +6,17 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		{% load staticfiles %}
 		<link rel = "stylesheet" href ="{% static 'spca_app/css/style.css' %}" >
-		<title>SPCA of Northern Virginia: Lost & Found</title>
+		<title>SPCA of Northern Virginia: Dog Foster</title>
 	</head>
 	<body>
 		{% include './navbar.html' %}
 		{% block navbar %}{% endblock %}
 		<div class="container">
-			<h1><img src="{% static 'spca_app/img/paw.png' %}" id ="paw-pic" alt="...">  Lost and Found</h1>
+			<h1><img src="{% static 'spca_app/img/paw.png' %}" id ="paw-pic" alt="...">   Dog Foster Responsibilities</h1>
+			<div class="row">
+				<h3>Thank you for your interest in becoming a foster parent for the SPCA of Northern Virginia!</h3>
+				<h4>Note: We currently do not have any dogs that are awaiting foster homes. Please consider our other volunteer needs.</h4>
+			</div>
 		</div>
 	</body>
 </html>
